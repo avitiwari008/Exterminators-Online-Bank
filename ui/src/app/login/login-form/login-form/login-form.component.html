@@ -1,0 +1,51 @@
+<div class="container-login">
+  <div class="center-content">
+    <div class="wrap-login">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <span class="login-form-title">
+          Log in
+        </span>
+        <span class="login100-form-avatar">
+          <img src="assets/avatar-01.png" alt="AVATAR">
+        </span>
+        <div class="inputs">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email ID" formControlName="email" required>
+            <!--Error if email is not provided-->
+            <mat-error *ngIf="form.get('email').hasError('required')" class="error">
+              Email Id is required
+            </mat-error>
+            <!--Error if valid email id is not provided-->
+            <mat-error *ngIf="form.get('email').hasError('email')" class="error">
+              Please enter valid email id
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="inputs">
+          <mat-form-field>
+            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password"
+              required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-hint *ngIf="!passwordInput.value">Enter your password</mat-hint>
+            <!--Error if password is not provided-->
+            <mat-error *ngIf="form.get('password').hasError('required')" class="error">
+              Password is require
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <p *ngIf="error!=null" class="loginError">
+          {{ error}}
+        </p>
+
+        <p class="loginButtons">
+          <button mat-raised-button color="primary" type="submit">Login</button>
+          <button mat-raised-button color="primary" routerLink="/register/" routerLinkActive="active">Register</button>
+        </p>
+
+      </form>
+    </div>
+
+  </div>
+</div>

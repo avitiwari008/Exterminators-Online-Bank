@@ -1,0 +1,246 @@
+/* You can add global styles to this file, and also import other style files */
+$cambo: 'Cambo', serif;
+$f400: 400;
+$gray: #f7f7f7;
+
+
+.crumb{
+    padding-right: 48px;
+    float: right;
+}
+// Add a beneficary link
+.anav:link {
+    color:blue;
+    text-decoration: none;
+    font-size: 22px;
+    
+}
+    .anavl:hover  {
+        color: black;
+      }
+
+.heading{
+    color:white;
+    font-size: 30px;
+
+}
+.mat-icon {
+    font-size: 25px;
+  }
+
+.matbtn{
+    font-size: 12px;
+}
+
+
+.main{
+
+    width: 100%;
+    background-image: url('/assets/fundtransfer.jpg');
+    background-size: cover;
+    // opacity: 0.5;
+    height:100vh;
+
+}
+
+
+.container{
+    // display: flex; 
+    .mainContent {
+        padding: 100px 10px 30px;
+        box-sizing:border-box;
+        }
+    
+
+}
+
+
+label{
+    
+    width:220px;
+    display: inline-block;
+}
+
+    body {
+        margin: 0px;
+        font-family: $cambo;
+        font-weight: $f400;
+       background-color: rgba(238, 229, 236, 0.767);
+    }
+
+
+    .left-section {
+        
+        min-height: 445px;
+        padding-left: 96px;
+        .fundsmanagement {
+            > div {
+                border-bottom: 2px solid #464646;
+                padding-bottom: 20px;
+                &:last-child {
+                    border-bottom: 0;
+                }
+            }
+            i, u {
+                // display: block;
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+    }
+   
+
+    .updateBtn {
+    
+        @extend .btn;
+        background-color: #4CAF50;
+        &:hover {
+            background-color: black;
+            color: white;
+        }
+        &:focus {
+            outline: 0;
+        }
+    }
+   
+
+    .btn{    
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+    }
+
+// submit buttons
+    .submitBtn {
+    
+        @extend .btn;
+        background-color: #e67e22;
+        &:hover {
+            background-color: black;
+            color: white;
+        }
+        &:focus {
+            outline: 0;
+        }
+    }
+// form elements
+    .formelement{
+        padding: 10px 21px 5px 5px;
+        .error{
+            color: red;
+            font-size: 17px;
+            font-family: $cambo;
+
+        }
+    }
+
+
+
+    /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 80%;
+
+  }
+  
+  
+// delet button link
+
+  .deletmod:link {
+    text-decoration: none;
+    background-color: #44c767;
+    border-radius: 25px;
+    border: 1px solid #18ab29;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 14px;
+    padding: 13px 19px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+}
+    .deletmodl:hover  {
+        color: black;
+      }
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.crumbl{
+    padding-right: 48px;
+    text-align: right;
+    margin-right: -52px;
+           
+}
+
+// modal header
+.header {
+ 
+    background-color: #f1f1f1;
+    padding: 10px 10px;
+      background:#38504b;
+  }
+
+  .modal-container{
+    padding: 20px;
+  }
+
+
+  .funds-form {
+    min-width: 100px;
+    max-width: 200px;
+    width: 100%;
+  }
+  
+  .funds-full-width {
+    width: 100%;
+  }
+  
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+// .example-headers-align .mat-form-field + .mat-form-field {
+//   margin-left: 8px;
+// }
+
+.example-headers-align .mat-form-field{
+    margin-left: 8px;
+  }
+
+

@@ -1,0 +1,33 @@
+<app-cc-main-nav>
+
+</app-cc-main-nav>
+<div class="center-content">
+    <mat-card class="complaints-card">
+        <mat-card-title class="complaints-title">
+            All complaints
+        </mat-card-title>
+        <mat-card-content>
+            <div *ngFor="let complaint of complaints">
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <p>Customer Name : {{complaint.firstName}}</p>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <p>{{complaint.category}}</p>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <p>Category: {{complaint.category}}</p>
+                        <p>Description: {{complaint.description}}</p>
+                        <p>Customer Email: {{complaint.email}}</p>
+                        <p>Customer Account: {{complaint.accountNumber}}</p>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+<app-footer></app-footer>

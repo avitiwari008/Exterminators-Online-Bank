@@ -1,0 +1,125 @@
+<!-- Nav Bar Component -->
+<app-main-nav>
+</app-main-nav>
+
+<!-- Add Beneficiary form  -->
+<div class="center-content">
+    <mat-card>
+        <mat-card-title class="align-center">Add Beneficiary</mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="addBeneficiaryFormGroup">
+                <!-- First Name Field -->
+                <p><i>Please provide details for the beneficiary (Within Bank/Outside) </i></p>
+                <mat-form-field class="form-field">
+                    <label for="fname">First Name:</label>
+                    <input matInput class="textb" type="text" name="fname" id="fname" formControlName="firstNameCtrl"
+                        required>
+                    <!-- Error if first name is not provided -->
+                    <mat-error *ngIf="addBeneficiaryFormGroup.get('firstNameCtrl').hasError('required')">
+                        First Name is required
+                    </mat-error>
+                    <!-- Error if First name has characters other than alphabets -->
+                    <mat-error *ngIf="addBeneficiaryFormGroup.get('firstNameCtrl').hasError('pattern')">
+                        First name cannot have characters other than alphabets
+                    </mat-error>
+                </mat-form-field>
+
+                <br>
+
+                <!--Last name field-->
+                <mat-form-field class="form-field">
+                    <label for="lname">Last Name:</label>
+                    <input matInput class="textb" type="text" name="lname" id="lname" formControlName="lastNameCtrl"
+                        required>
+                    <!-- Error if last name is not provided -->
+                    <mat-error *ngIf="addBeneficiaryFormGroup.get('lastNameCtrl').hasError('required')">
+                        Last Name is required
+                    </mat-error>
+                    <!-- Error if Last name has characters other than alphabets -->
+                    <mat-error *ngIf="addBeneficiaryFormGroup.get('lastNameCtrl').hasError('pattern')">
+                        Last name cannot have characters other than alphabets
+                    </mat-error>
+                </mat-form-field>
+
+                <br>
+
+                <!-- Nick name field -->
+                <mat-form-field class="form-field">
+                    <label for="nickName">Nick Name:</label>
+                    <input matInput class="textb" type="text" name="nickName" id="nickName"
+                        formControlName="nickNameCtrl" required>
+                    <!-- Error if nick name is not provided -->
+                    <mat-error *ngIf="addBeneficiaryFormGroup.get('nickNameCtrl').hasError('required')">
+                        Nick Name is required
+                    </mat-error>
+                    <!-- Error if Last name has characters other than alphabets -->
+                    <mat-error *ngIf="addBeneficiaryFormGroup.get('nickNameCtrl').hasError('pattern')">
+                        Nick name cannot have characters other than alphabets
+                    </mat-error>
+                </mat-form-field>
+
+                <br>
+
+                <!-- Account Number field -->
+                <mat-form-field class="form-field">
+                    <label for="accountNumber">Account Number:</label>
+                    <input matInput class="textb" type="text" name="accountNumber" id="accountNumber"
+                        formControlName="accNumberCtrl" required maxlength="15" minlength="9">
+                    <!-- Error if account number is not provided -->
+                    <mat-error *ngIf="addBeneficiaryFormGroup.get('accNumberCtrl').hasError('required')">
+                        Account Number is required
+                    </mat-error>
+                    <mat-error *ngIf="addBeneficiaryFormGroup.get('accNumberCtrl').hasError('pattern')">
+                        Account Number can have numbers and uppercase alphabets only
+                    </mat-error>
+                    <mat-error *ngIf="addBeneficiaryFormGroup.get('accNumberCtrl').hasError('minlength')">
+                        Account Number can have minimum 9 digits
+                    </mat-error>
+                    <!-- Error if min length is less than 15 digits -->
+                    <mat-error *ngIf="addBeneficiaryFormGroup.get('accNumberCtrl').hasError('maxlength')">
+                        Account Number can have maximum 15 digits
+                    </mat-error>
+
+                </mat-form-field>
+
+                <br>
+
+                <!-- Routing Number field -->
+                <mat-form-field class="form-field">
+                    <label for="routingNumber">Routing Number:</label>
+                    <input matInput class="textb" type="text" name="routingNumber" id="routingNumber"
+                        formControlName="routingNumberCtrl" required maxlength="9" minlength="9">
+                    
+                    <!-- Error if routing number is not provided -->
+                    <mat-error *ngIf="addBeneficiaryFormGroup.get('routingNumberCtrl').hasError('required')">
+                        Routing Number is required
+                    </mat-error>
+                    <!-- Error if Routing Number has characters other than digits -->
+                    <mat-error *ngIf="addBeneficiaryFormGroup.get('routingNumberCtrl').hasError('pattern')">
+                        Routing Number can only have digits
+                    </mat-error>
+                    <mat-error *ngIf="addBeneficiaryFormGroup.get('routingNumberCtrl').hasError('minlength')">
+                        Routing Number can have maximum 9 digits
+                    </mat-error>
+                    <!-- Error if min length is less than 15 digits -->
+                    <mat-error *ngIf="addBeneficiaryFormGroup.get('routingNumberCtrl').hasError('maxlength')">
+                        Routing Number can have maximum 9 digits
+                    </mat-error>
+                    <div *ngIf="routingNumberCheck">
+                        <mat-icon>check_circle</mat-icon>
+                    </div>
+                    <!-- <div *ngIf="routingNumberCheck">
+                        <mat-icon>check_circle</mat-icon>
+                    </div> -->
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="checkBtn" name="check" value="check" (click)="check()">Check</button>
+            </form>
+
+            <!-- submit buuton -->
+            <button mat-raised-button color="primary" class="submitBtn" name="Submit" value="Submit" (click)="savebeneficiary()"
+                [disabled]="!addBeneficiaryFormGroup.valid && !routingNumberCheck">Submit</button>
+        </mat-card-content>
+    </mat-card>
+</div>
+    
+    <app-footer></app-footer>

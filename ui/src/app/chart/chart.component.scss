@@ -1,0 +1,22 @@
+.tablestyle{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    display: block;
+    margin-left: 40px;
+    
+    }
+
+// table enclosed in grid
+    .chart-container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-column-gap: 64px;
+        margin-left: 432px;
+        /* margin-right: 57px; */
+        position: relative;
+        padding-top: 36px;
+        height: 220px;
+        /* float: right; */
+         width: 840px !important;
+         margin-bottom: 30px;
+    }

@@ -1,0 +1,49 @@
+.grid{
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(10px, auto);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    color: black;
+    width: 100%;
+}
+
+.logo_img{
+    width: 230px;
+    height: 200px;
+}
+
+.welcome_img{
+    width: 100%;
+    height: 70%;
+}
+
+.loginBtn + .signupBtn{
+    margin-left: 20px;
+}
+
+.common{
+    height: 200px;
+    //clear: both;
+    display: inline-block;
+}
+
+.innerDiv1{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.innerDiv2{
+    margin-top: 50px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+button{
+    border: none;
+    border-radius: 10px;
+    width: 80px;
+    height: 40px;
+    color: white;
+    background-color: rgb(216, 181, 25);
+}
+

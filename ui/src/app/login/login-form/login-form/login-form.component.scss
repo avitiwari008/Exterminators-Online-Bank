@@ -1,0 +1,82 @@
+.center-content {
+    // text-align: center;
+    width: 443px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 41px 55px 37px;
+    
+    background: rgb(232, 240, 254);
+    .login-form-title {
+        font-family: Cambria, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+        font-size: 30px;
+        color: #555;
+        line-height: 1.2;
+        text-align: center;
+        text-transform: uppercase;
+        display: block;
+    }
+
+    .login100-form-avatar {
+        display: block;
+        width: 89px;
+        margin-bottom: 20px;
+    height: 68px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+    
+    .wrap-login {
+        
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 55px 55px 37px;
+        
+    }
+
+    .inputs{
+        
+        font-size: 16px;
+        height:69px
+       
+    }
+    
+}
+
+button {
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+
+
+.container-login{
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    background-image: url('/assets/login-image.jpg')
+}
+
+.loginError{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: red;
+    font-size: small;
+}
+
+.error{
+    margin-bottom: 10px;
+}

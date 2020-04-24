@@ -1,0 +1,44 @@
+<app-main-nav>
+</app-main-nav>
+
+<div class="center-content donate-gif">
+  <marquee behavior="scroll" direction="right">
+    <img class="gif-sizing"src="/assets/donate.gif">
+  </marquee>
+</div>
+<div class="center-content">
+  <mat-card>
+    <mat-card-title class="align-center">
+      Donate and support our Heroes!
+    </mat-card-title>
+      <mat-card-content>
+          <form [formGroup]="donateFormGroup">
+              <p class="info-text">All proceeds recevied through this donation will be handed over to First Responder groups</p>
+              <p>Account Number: {{user.account.AccountNumber}}</p>
+              <div class="element">
+                <mat-form-field>
+                  <!-- <mat-label>Amount</mat-label>
+                  <input matInput placeholder="Donation Amount" [(ngModel)]="transaction.amount"
+                    formControlName="amountCtrl" required> -->
+                  <mat-label>
+                      <mat-icon class="matbtn">attach_money</mat-icon>Amount
+                  </mat-label>
+                  <input matInput [formControl]="donateFormGroup.get('amountCtrl')"  name=amount id="amount"
+                      [(ngModel)]="transaction.amount" required="required">
+                  <mat-error *ngIf="donateFormGroup.get('amountCtrl').hasError('pattern') && !donateFormGroup.get('amountCtrl').hasError('required')">
+                    Please enter a valid non-negative amount with maximum 2 decimal places and no leading zeros
+                  </mat-error>
+                  <mat-error *ngIf="donateFormGroup.get('amountCtrl').hasError('required')">
+                      Amount is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <br><br> 
+              <div>
+                  <button mat-raised-button color="primary" (click)="debit(transaction)" [disabled]="!donateFormGroup.valid">Donate</button>
+              </div>
+            </form>
+      </mat-card-content>
+  </mat-card>
+</div>
+<app-footer></app-footer>

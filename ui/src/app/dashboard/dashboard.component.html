@@ -1,0 +1,39 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<app-main-nav>
+</app-main-nav>
+<div class="txn-wrapper">
+    <div class="tablestyle">
+        <div class="profile-wrapper">
+            <span class="profile-pic">
+                <img src="assets/8finished.png" alt="AVATAR">
+            </span>
+            <div class="welcome">Welcome back, {{user.firstName}}!!
+            </div><br><br>
+
+            <!-- last login time -->
+            <span class="lastLogin"><strong>Last Login Time: </strong>
+                {{(user.lastLoginDate | date: 'short')}}</span>
+
+
+
+        </div>
+
+        <div class="balance">
+            <div>Total Balance</div>
+            <div>
+                ${{accountDetails? accountDetails.CurrentBalance : "" }}
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+
+
+
+    </div>
+</div>
+
+
+<app-transactiontable></app-transactiontable>
+<app-chart></app-chart>
+<!-- <app-expense-chart></app-expense-chart> -->
+<br><br><br><br><br><br><br><br><br>
+<app-footer></app-footer>

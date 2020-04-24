@@ -1,0 +1,63 @@
+<!-- table for 5 txns details -->
+<div class="money-savingbanner">
+
+    <a href="https://www.wikihow.com/Save-Money-Every-Month" target="_blank">
+        <img alt="money-saver" src="/assets/money-saving.jpg">
+    </a>
+
+</div>
+
+<div class="parent-wrapper">
+    <div class="table-news">
+        <div class="tablestyle">
+            <table class="table table-hover">
+                <thead class="text-warning">
+                    <tr>
+                        <th scope="col">Transaction Date</th>
+                        <th scope="col">Account Number</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Amount($)</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <ng-container *ngFor="let txns of transactions">
+                        <tr>
+                            <td>{{txns.transactionDate}}</td>
+                            <td>{{txns.ownerAccountNum}}</td>
+                            <td>{{txns.type}}</td>
+                            <td>{{txns.category}}</td>
+                            <td>{{txns.amount}}</td>
+                        </tr>
+                    </ng-container>
+
+                </tbody>
+
+            </table>
+            <div *ngIf="transactions?.length== 0">
+                <div class=" alert alert-info">
+                    No <strong>Transactions </strong>yet
+                </div>
+            </div>
+            <br><br>
+            <div class="footer-viewpdf">
+
+                <!-- <a class="generate-pdf" href="javascript:void(0);" (click)='getpdf()'>To View Detailed
+                    Report (Generate PDF)</a> -->
+                <button mat-raised-button color="primary" (click)='getpdf()'>
+                    Download PDF</button>
+
+            </div>
+        </div>
+        <app-mostviewednews></app-mostviewednews>
+
+    </div>
+
+
+    <div class="backgroundimage">
+        <app-expense-chart></app-expense-chart>
+    </div>
+
+</div>

@@ -1,0 +1,85 @@
+<app-main-nav>
+
+</app-main-nav>
+
+<div id="main" class="main">
+
+    <!-- main accordion section -->
+    <div class="container">
+
+        <div id="mainContent" class="mainContent">
+
+            <div class="left-section">
+
+                <div class="crumb">
+                    <a class="anav anavl" [routerLink]="['/beneficiaries/add']" routerLinkActive="router-link-active">
+                        <mat-icon class="icon">person_add</mat-icon>Add
+                    </a>
+                </div>
+
+                <div id="todoLists">
+                    <h3 class="heading">{{title}}</h3>
+                    <!-- display msg for the new user or no beneficaries  -->
+                    <div *ngIf="beneficiaries?.length== 0">
+                        <div class=" alert alert-info">
+                            Please Click on <strong>Add</strong> a new Beneficiary link on top right
+                        </div>
+                    </div>
+
+
+                    <div *ngFor="let beneficiary of beneficiaries">
+                        <mat-accordion>
+
+                            <mat-expansion-panel>
+
+                                <mat-expansion-panel-header>
+
+                                    <mat-panel-title>
+
+
+                                        <label for="fName ">Name:</label>
+                                        <input class="textName " type="text" name=fName id="fName"
+                                            [(ngModel)]="beneficiary.firstName" readonly>
+
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <label for="lastName">Last Name:</label>
+                                <input class="textb " type="text" name=lastName id="lastName"
+                                    [(ngModel)]="beneficiary.lastName" readonly>
+                                <br>
+                                <br>
+                                <label for="accountNumber">Account Number:</label>
+                                <input class="textb" type="text" id="accountNumber" name=accountNumber
+                                    value="{{ beneficiary.accountNumber}}" readonly>
+                                <br>
+                                <br>
+                                <label for="nickName">Nick Name:</label>
+                                <input class="textb" type="text" id="nickName" name=nickName
+                                    value="{{ beneficiary.nickName}}" readonly>
+
+                                <br>
+                                <br>
+                                <label for="routingNumber">Routing Number:</label>
+                                <input class="textb" type="text" id="routingNumber" name=routingNumber
+                                    value="{{ beneficiary.routingNumber}}" readonly>
+                                <mat-action-row>
+                                    <button class="deleteBtn" (click)="deleteBeneficiary(beneficiary)">Delete</button>
+                                </mat-action-row>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                            </mat-expansion-panel>
+                        </mat-accordion>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<app-footer></app-footer>

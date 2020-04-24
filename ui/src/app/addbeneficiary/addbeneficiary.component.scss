@@ -1,0 +1,188 @@
+// $cambo: 'Cambo', serif;
+// $f400: 400;
+// $gray: #f7f7f7;
+
+// // for the form elemt
+// .formelement{
+//     padding: 7px 4px 10px 3px;
+//     .error{
+//         color: red;
+//         font-size: 17px;
+//         font-family: $cambo;
+
+//     }
+// }
+// // text boxes
+// .textb{
+//     background-color:rgba(238, 229, 236, 0.767);
+//     border-style: none
+    
+// }
+
+// // button class for delete button
+// .btn{
+
+    
+//     border: none;
+//     color: white;
+//     padding: 8px 14px;
+//     text-align: center;
+//     text-decoration: none;
+//     display: inline-block;
+//     font-size: 16px;
+//     margin: 4px 2px;
+//     cursor: pointer;
+//     border-radius: 15px;
+//     }
+
+// // submit button class
+//     .submitBtn {
+    
+//         @extend .btn;
+//         background-color: #3f51b5;
+//         // &:hover {
+//         //     background-color: black;
+//         //     color: white;
+//         // }
+//         &:focus {
+//             outline: 0;
+//         }
+//     }
+
+//     .checkBtn {
+    
+//         @extend .btn;
+//         background-color: #3f51b5;
+//         height: 20px;
+//         font-size: 13px;
+//         padding-top: 0px;
+//         &:hover {
+//             background-color: black;
+//             color: white;
+//         }
+//         &:focus {
+//             outline: 0;
+//         }
+//     }
+
+// // main div css
+//     .mainContent {
+//         padding: 100px 10px 30px;
+//         box-sizing:border-box;
+//         }
+
+//     .form{
+
+//     padding: 20px;
+//     background: #c4cdd6;
+//     /* color: #fff; */
+//     border-radius: 4px;
+//     margin-top: 98px;
+//     width: 50%;
+//     /* left: 200px; */
+//     margin-left: 393px;
+
+//     input{
+//         box-sizing: border-box;
+//         justify-content: space-between;
+//         font-size: 1.1rem;
+//         border: 2px solid #aaa;
+//         border-radius: 2px
+//     } 
+//     }    
+
+
+
+
+// label{
+    
+//     width:220px;
+//     display: inline-block;
+// }
+
+
+// /* The Modal (background) */
+// .modal {
+//     display: none; /* Hidden by default */
+//     position: fixed; /* Stay in place */
+//     z-index: 1; /* Sit on top */
+//     padding-top: 100px; /* Location of the box */
+//     left: 0;
+//     top: 0;
+//     width: 100%; /* Full width */
+//     height: 100%; /* Full height */
+//     overflow: auto; /* Enable scroll if needed */
+//     background-color: rgb(0,0,0); /* Fallback color */
+//     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+//     transform: scale(1.0);
+//     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+//   }
+  
+//   /* Modal Content */
+//   .modal-content {
+//     background-color: #fefefe;
+//     margin: auto;
+//     padding: 20px;
+//     border: 1px solid #888;
+//     width: 80%;
+
+//   }
+  
+  
+
+// // Ok button css
+//   .anav:link {
+//     text-decoration: none;
+//     background-color: #44c767;
+//     border-radius: 25px;
+//     border: 1px solid #18ab29;
+//     display: inline-block;
+//     cursor: pointer;
+//     color: #ffffff;
+//     font-family: Arial;
+//     font-size: 14px;
+//     padding: 12px 19px;
+//     text-decoration: none;
+//     text-shadow: 0px 1px 0px #2f6627;
+// }
+//     .anavl:hover  {
+//         color: black;
+//       }
+// .modal-header {
+//     padding: 15px;
+//     border-bottom: 1px solid #e5e5e5;
+// }
+
+// .crumb{
+//     padding-right: 48px;
+//     text-align: right
+    
+        
+// }
+// // class for error
+// .beneficiaryerror{
+//     color: red;
+//     font-size: 17px;
+//     font-family: $cambo;
+
+// }
+
+
+
+// .mainContent
+// {
+
+//     margin-left:300px;
+//     margin-top:200px;
+// }
+
+.align-center {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form-field{
+width:70%;
+margin-bottom:10px;
+}
+

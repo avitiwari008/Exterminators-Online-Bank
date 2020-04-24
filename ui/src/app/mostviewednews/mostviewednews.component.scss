@@ -1,0 +1,50 @@
+.tabsView .tabsContent>ul{
+    list-style: none;
+    >li {
+    
+        width: 301px;
+        /* margin-left: 419px; */
+        /* border-top: 2px solid #000; */
+        background: #f1f5f8;
+       
+        }
+    
+}
+
+    
+    .tabsView{
+        .tabsContent>ul>li.active {
+        display: block
+        }
+        color: #024d99;
+        text-decoration: none
+        
+        
+       
+    
+    }
+
+    
+    .list1 li {
+    border-bottom: 1px solid #ebebeb;
+    font-size: 13px;
+    line-height: 17px;
+    padding: 7px 10px;
+    list-style: circle;
+    }
+    
+    .list1 li:hover {
+    background: #f4f4f4;
+    border-color: #cdcbcb;
+    color: #000
+    }
+
+
+    .mostPopular{
+        color: #000;
+        font-weight: 700;
+        line-height: 36px;
+        border-top: 1px solid #000;
+        margin-left: 41px;
+    }
+    

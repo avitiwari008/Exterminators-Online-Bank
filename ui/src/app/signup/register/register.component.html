@@ -1,0 +1,336 @@
+<!-- <app-register-nav-bar [user]="user" [button]="button"></app-register-nav-bar> -->
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+
+  <!--Personal Details form-->
+  <mat-step [stepControl]="personalFormGroup">
+    <mat-card class="center-content">
+      <mat-card-content>
+        <form [formGroup]="personalFormGroup">
+          <ng-template matStepLabel>Personal Details</ng-template>
+          <div class="element">
+            <!--Form Field for First Name-->
+            <mat-form-field>
+              <!--label for first name-->
+              <mat-label>First Name</mat-label>
+              <!--Input field for First Name-->
+              <input matInput placeholder="First name" [(ngModel)]="user.firstName" formControlName="firstNameCtrl"
+                required>
+              <!--Error if first name is not provided-->
+              <mat-error *ngIf="personalFormGroup.get('firstNameCtrl').hasError('required')">
+                First Name is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="element">
+            <mat-form-field>
+              <!--Form Field for Last Name-->
+              <mat-label>Last Name</mat-label>
+              <!--Input field for last name with required restriction-->
+              <input matInput placeholder="Last name" [(ngModel)]="user.lastName" formControlName="lastNameCtrl"
+                required>
+              <!--Error if the last name is not provided-->
+              <mat-error *ngIf="personalFormGroup.get('lastNameCtrl').hasError('required')">
+                Last Name is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="element">
+            <mat-form-field>
+              <!--Form Field for Phone Number-->
+              <mat-label>Phone Number</mat-label>
+              <!-- input field for phone number with required, length and only numbers validations-->
+              <input matInput placeholder="1234567890" [(ngModel)]="user.phoneNumber" formControlName="phoneNumberCtrl"
+                required maxlength="10" minlength="10">
+              <!--Error if phone number is not provided-->
+              <mat-error *ngIf="personalFormGroup.get('phoneNumberCtrl').hasError('required')">
+                Phone Number is required
+              </mat-error>
+              <!--Error if phone number length is less than 10 digits-->
+              <mat-error *ngIf="personalFormGroup.get('phoneNumberCtrl').hasError('minlength')">
+                Phone Number should have 10 digits
+              </mat-error>
+              <!--Error if phone number has characters other than digits-->
+              <mat-error *ngIf="personalFormGroup.get('phoneNumberCtrl').hasError('pattern')">
+                Phone number should have numbers only
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="element">
+            <mat-form-field>
+              <!--Form Field for Email Id-->
+              <mat-label>Email ID</mat-label>
+              <!--Input for Email id with required and pattern validations-->
+              <input type=email matInput placeholder="Ex. pat@example.com" [(ngModel)]="user.email"
+                formControlName="emailIDCtrl" required email>
+              <!--hint: "Enter your email id"-->
+              <mat-hint>Enter your email id</mat-hint>
+              <!--Error if email is not provided-->
+              <mat-error *ngIf="personalFormGroup.get('emailIDCtrl').hasError('required')">
+                Email Id is required
+              </mat-error>
+              <!--Error if valid email id is not provided-->
+              <mat-error *ngIf="personalFormGroup.get('emailIDCtrl').hasError('email')">
+                Please enter valid email id
+              </mat-error>
+              <!--Error if email id already exists-->
+              <mat-error *ngIf="personalFormGroup.get('emailIDCtrl').hasError('existingEmail')">
+                Email ID already exists
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="element">
+            <!--form field for Date of birth-->
+            <mat-form-field>
+              <!--Input for date with current and future dates disabled-->
+              <input matInput placeholder="Date of Birth" [min]="minDate" [max]="maxDate" [matDatepicker]="myDatepicker"
+                [(ngModel)]="user.dob" formControlName="dobCtrl">
+              <!--date picker for choosing dates-->
+              <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+              <mat-datepicker #myDatepicker></mat-datepicker>
+              <!--Error if dob is not provided-->
+              <mat-error *ngIf="personalFormGroup.get('dobCtrl').hasError('required')">
+                Date of Birth is required
+              </mat-error>
+              <!--Error if dob is today's date-->
+              <mat-error *ngIf="personalFormGroup.get('dobCtrl').hasError('min')">
+                Date of Birth cannot be current date
+              </mat-error>
+              <!--Error if dob is future date-->
+              <mat-error *ngIf="personalFormGroup.get('dobCtrl').hasError('max')">
+                Date of Birth cannot be future date
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <!--Button to navigate to next section-->
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-step>
+
+
+  <!--Address details form-->
+  <div>
+    <mat-step [stepControl]="addressFormGroup">
+      <mat-card class="center-content">
+        <mat-card-content>
+          <form [formGroup]="addressFormGroup">
+            <!--title-->
+            <ng-template matStepLabel>Address Details</ng-template>
+            <div class="element">
+              <!--Form Field for Address Line 1-->
+              <mat-form-field>
+                <!--Label for Address Line 1-->
+                <mat-label>Address Line 1</mat-label>
+                <!--Input Field for Address Line 1 with required validation-->
+                <input matInput formControlName="addressLine1Ctrl" placeholder="Ex. 1 Main St, New York, NY" required>
+                <!--hint-->
+                <mat-hint>Enter the street name</mat-hint>
+                <!--Error if value is not provided-->
+                <mat-error *ngIf="addressFormGroup.get('addressLine1Ctrl').hasError('required')">
+                  Address is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="element">
+              <!--Form Field for Address Line 1-->
+              <mat-form-field>
+                <!--Label for Address Line 2-->
+                <mat-label>Address Line 2</mat-label>
+                <!--Input Field for Address Line 2 with required validation-->
+                <input matInput formControlName="addressLine2Ctrl" [(ngModel)]="user.addressLine1"
+                  placeholder="Apt, Building, Block No." required>
+                <!--hint-->
+                <mat-hint>Enter your Apt, block, building number.</mat-hint>
+                <!--Error if value is not provided-->
+                <mat-error *ngIf="addressFormGroup.get('addressLine2Ctrl').hasError('required')">
+                  Address is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="element">
+              <!-- Form field for city -->
+              <mat-form-field>
+                <!-- Label for city -->
+                <mat-label>City</mat-label>
+                <!--Input for City with required validation-->
+                <input matInput formControlName="cityCtrl" [(ngModel)]="user.city"
+                  placeholder="Ex. New York City, Boston" required>
+                <!-- hint -->
+                <mat-hint>Enter your City</mat-hint>
+                <!-- Error if city is not provided -->
+                <mat-error *ngIf="addressFormGroup.get('cityCtrl').hasError('required')">
+                  City is required
+                </mat-error>
+                 <!-- Error if city is not a string -->
+                <mat-error *ngIf="addressFormGroup.get('cityCtrl').hasError('pattern')">
+                  Only alphabets are allowed
+                </mat-error>
+              </mat-form-field>
+
+            </div>
+            <div class="element">
+              <!-- Form field for state -->
+              <mat-form-field>
+                <!-- Label for State -->
+                <mat-label>State</mat-label>
+                <!-- Input field for state with required validation-->
+                <mat-select (change)="eventSelection($event.value)" formControlName="stateCtrl" required>
+                  <!--Drop sown with names of all US States-->
+                  <mat-option *ngFor="let state of states" [value]="state.value">
+                    {{state.viewValue}}
+                  </mat-option>
+                </mat-select>
+                <!--Error id state is not provided-->
+                <mat-error *ngIf="addressFormGroup.get('stateCtrl').hasError('required')">
+                  State is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="element">
+              <!-- Form Field for Zipcode -->
+              <mat-form-field>
+                <!-- label for zip code -->
+                <mat-label>Zipcode</mat-label>
+                <!-- input field for zip code -->
+                <input matInput formControlName="zipCtrl" [(ngModel)]="user.zip" maxlength="5" minlength="5"
+                  placeholder="Ex. 12345" required>
+                <!-- hint -->
+                <mat-hint>Enter your ZipCode</mat-hint>
+                <!-- Error if zipcode is not provided -->
+                <mat-error *ngIf="addressFormGroup.get('zipCtrl').hasError('required')">
+                  Zip Code is required
+                </mat-error>
+                <!-- Error if zipcode has characters other than digits -->
+                <mat-error *ngIf="addressFormGroup.get('zipCtrl').hasError('pattern')">
+                  Zip Code should be numeric
+                </mat-error>
+                <!-- Error if max length is more than 5 digits -->
+                <mat-error *ngIf="addressFormGroup.get('zipCtrl').hasError('minlength')">
+                  Zip Code can have maximum 5 digits
+                </mat-error>
+                <!-- Error if min length is less than 5 digits -->
+                <mat-error *ngIf="addressFormGroup.get('zipCtrl').hasError('maxlength')">
+                  Zip Code can have maximum 5 digits
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="element">
+              <!--Button to navigate to previous section-->
+              <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+              <!--Button to navigate to next section-->
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </mat-step>
+
+  </div>
+
+  <!--Credential Form -->
+  <div>
+    <mat-step [stepControl]="credentialsFormGroup">
+      <mat-card class="center-content">
+        <mat-card-content>
+          <!--title-->
+          <form [formGroup]="credentialsFormGroup">
+            <ng-template matStepLabel>Set your Password</ng-template>
+            <div class="element pwd">
+              <!--Form Field for password-->
+              <mat-form-field>
+                <!--Input for password with required and pattern validations-->
+                <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password"
+                  required>
+                <!--Icon to show password if hidden-->
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <!--Hint to tell user what is required-->
+                <mat-hint *ngIf="!passwordInput.value">Enter your password</mat-hint>
+                <!--Error if password is not provided-->
+                <mat-error *ngIf="credentialsFormGroup.get('password').hasError('required')">
+                  Password is require
+                </mat-error>
+                <!--Error if password does not follow given pattern-->
+                <mat-error *ngIf="credentialsFormGroup.get('password').hasError('pattern')">
+                  Password should have atleast 1 uppercase, 1 lowercase, 1 digit and
+                  1 special character and minimum length of 9 characters
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="element">
+              <!--Button to navigate to previous section-->
+              <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+              <!--Button to navigate to next section-->
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </mat-step>
+  </div>
+  <!-- SSN Form-->
+  <div>
+    <mat-step [stepControl]="ssnFormGroup">
+      <mat-card class="center-content">
+        <mat-card-content>
+          <form [formGroup]="ssnFormGroup">
+            <!--title-->
+            <ng-template matStepLabel>SSN Details</ng-template>
+            <div class="element">
+              <!--form field for SSN-->
+              <mat-form-field>
+                <!--Input for SSN with required, length and only numbers validations-->
+                <input matInput placeholder="SSN" [type]="hideSSN ? 'password' : 'text'" formControlName="ssn"
+                  minlength="9" maxlength="9" required>
+                <!--icon to show values if hidden-->
+                <mat-icon matSuffix (click)="hideSSN = !hideSSN">{{hideSSN ? 'visibility_off' : 'visibility'}}
+                </mat-icon>
+                <!--Hint for SSN Field-->
+                <mat-hint *ngIf="!ssnInput.value">Enter your SSN</mat-hint>
+                <!--Error if SSN is not provided-->
+                <mat-error *ngIf="ssnFormGroup.get('ssn').hasError('required')">
+                  Social Security Number is required
+                </mat-error>
+                <!--Error if SSN has characters other than dgits-->
+                <mat-error *ngIf="ssnFormGroup.get('ssn').hasError('pattern')">
+                  Social Security Number can have only numeric characters
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="element">
+              <!--Button to navigate to previous section-->
+              <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+              <!--Button to navigate to next section-->
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </mat-step>
+  </div>
+
+  <div class="center-content">
+    <mat-step>
+      <mat-card class="center-content">
+        <mat-card-content>
+          <!-- last tab with submit reset options-->
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <br>
+          <div>
+            <!--Button to navigate to previous section-->
+            <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+            <!--Button to reset values-->
+            <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
+            <!--Button to submit form-->
+            <button mat-raised-button color="primary" (click)="saveUser()">Submit</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-step>
+  </div>
+</mat-horizontal-stepper>

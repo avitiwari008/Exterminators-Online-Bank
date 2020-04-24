@@ -1,0 +1,98 @@
+
+html, body { 
+    height: 100%; 
+}
+
+body {
+    margin: 0;
+
+}
+
+.dashboard-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.tablestyle{
+    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    // transition: 0.3s;
+    // padding: 10px 10px;
+    // font-family: 'Montserrat', sans-serif;
+    // color: #04286E;
+    // background-color: #f8f8f8;
+    // font-size: 20px;
+    // font-weight: 500;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    padding: 5px 17px;
+    font-family: "Montserrat", sans-serif;
+    color: #04286E;
+    background-color: #f8f8f8;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 72px;
+
+    }
+
+// table enclosed in grid
+    .txn-wrapper{
+        
+        // grid-template-columns: repeat(1, 1fr);
+        // grid-column-gap: 63px;
+        // margin: 0px 30px 20px 223px;
+
+        grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 63px;
+    margin: 0px 30px 14px 226px;
+    }
+   
+
+
+.accountBalance{
+    text-align: right;
+}
+
+.welcome{
+    float: left;
+    margin: 10px 10px;
+}
+.balance{
+float: right;
+word-spacing: 3px;
+    line-height: 28px;
+}
+
+.profile-pic {
+   
+    overflow: hidden;
+    float:left;
+    img{
+        
+        height: 51px;
+        border-radius: 45%;
+    }
+}
+
+.profile-wrapper{
+    width: 30%;
+    display: inline-block;
+
+    .profile-pic {
+   
+        overflow: hidden;
+        float:left;
+        img{
+            
+            height: 51px;
+            border-radius: 45%;
+        }
+    }
+
+}
+
+.lastLogin{
+    font-size: 12px;
+}

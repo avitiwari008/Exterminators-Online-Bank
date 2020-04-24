@@ -1,0 +1,38 @@
+<app-main-nav>
+</app-main-nav>
+<div class="center-content contact-gif">
+  <img src="/assets/contact-us.gif">
+</div>
+<div class="center-content">
+  <mat-card>
+    <mat-card-title>
+      Contact Us
+    </mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="contactUsFormGroup" class="contactus-form">
+        <div class="element">
+          <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="categoryCtrl" required>
+              <mat-option *ngFor="let category of categories" [value]="category.value">
+                {{category.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="element">
+          <mat-form-field class="desc-full-width">
+            <mat-label>Describe your problem</mat-label>
+            <textarea matInput formControlName="descriptionCtrl" placeholder="Ex. Unable to login.."></textarea>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-raised-button color="primary" (click)="saveComplaint()"
+            [disabled]="!contactUsFormGroup.valid">Submit</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<app-footer></app-footer>
